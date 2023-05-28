@@ -58,7 +58,7 @@
                             <div class="parsley-input col-md-6" id="fnWrapper">
                                 <label>اسم المستخدم: <span class="tx-danger">*</span></label>
                                 <input class="form-control form-control-sm mg-b-20"
-                                    data-parsley-class-handler="#lnWrapper" name="name" required="" type="text">
+                                    data-parsley-class-handler="#lnWrapper" name="username" required="" type="text">
                             </div>
 
                             <div class="parsley-input col-md-6 mg-t-20 mg-md-t-0" id="lnWrapper">
@@ -67,6 +67,8 @@
                                     data-parsley-class-handler="#lnWrapper" name="email" required="" type="email">
                             </div>
                         </div>
+
+
 
                     </div>
 
@@ -87,18 +89,25 @@
                     <div class="row row-sm mg-b-20">
                         <div class="col-lg-6">
                             <label class="form-label">حالة المستخدم</label>
-                            <select name="Status" id="select-beast" class="form-control  nice-select  custom-select">
-                                <option value="مفعل">مفعل</option>
-                                <option value="غير مفعل">غير مفعل</option>
+                            <select name="status" id="select-beast" class="form-control  nice-select  custom-select">
+                                <option value="active">active</option>
+                                <option value="inactive">inactive</option>
                             </select>
                         </div>
+
+                        <div class="parsley-input col-md-6" id="fnWrapper">
+                        <label>رقم الهاتف: <span class="tx-danger">*</span></label>
+                         <input class="form-control form-control-sm mg-b-20"
+                          data-parsley-class-handler="#lnWrapper" name="phone_number"  required="" type="text"   />
+    
+                          </div>
                     </div>
 
                     <div class="row mg-b-20">
                         <div class="col-xs-12 col-md-12">
                             <div class="form-group">
                                 <label class="form-label"> صلاحية المستخدم</label>
-                                {!! Form::select('roles_name[]', $roles,[], array('class' => 'form-control','multiple')) !!}
+                                {!! Form::select('roles[]',$roles,[], array('class' => 'form-control','multiple')) !!}
                             </div>
                         </div>
                     </div>

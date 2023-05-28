@@ -8,20 +8,23 @@ return new class extends Migration {
     /**
      * Run the migrations.
      */
-    public function up()
+    public function up(): void
     {
-        Schema::create('cities', function (Blueprint $table) {
+        Schema::create('inventory_transactions', function (Blueprint $table) {
             $table->id();
-            $table->string('name');
+            $table->date('withdraw_data');
+            $table->date('deposit_data');
+            $table->text('inventory_products_id')->constrained('inventory_products')->cascadeOnDelete();
             $table->timestamps();
         });
     }
+
 
     /**
      * Reverse the migrations.
      */
     public function down(): void
     {
-        Schema::dropIfExists('cities');
+        Schema::dropIfExists('inventory_transactions');
     }
 };

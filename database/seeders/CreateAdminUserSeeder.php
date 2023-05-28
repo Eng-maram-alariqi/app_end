@@ -20,9 +20,7 @@ public function run()
     $user = User::create([
         'username' => ' safa ',
         'email' => 'safa@yahoo.com',
-        'password' => bcrypt('123456'),
-        'user_type' => ["admin"],
-        
+        'password' => bcrypt('123456'), 
         'status' => "active",
         'phone_number' => '888888888',
         ]);

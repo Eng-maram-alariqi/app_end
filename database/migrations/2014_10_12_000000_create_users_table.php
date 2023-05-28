@@ -26,9 +26,8 @@ return new class extends Migration
             $table->string('username', 50);
             $table->string('email')->unique();
             $table->string('password', 100);
-            $table->string('phone_number', 9);
-            $table->text('user_type');
-            
+            $table->string('phone_number', 9);  
+              
             $table->enum('status', ['active', 'inactive']);
             $table->timestamps();
         });

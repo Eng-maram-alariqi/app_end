@@ -56,6 +56,7 @@
                                 <th class="wd-10p border-bottom-0">#</th>
                                 <th class="wd-15p border-bottom-0">اسم المستخدم</th>
                                 <th class="wd-20p border-bottom-0">البريد الالكتروني</th>
+                                <th class="wd-15p border-bottom-0">رقم الهاتف</th>
                                 <th class="wd-15p border-bottom-0">حالة المستخدم</th>
                                 <th class="wd-15p border-bottom-0">نوع المستخدم</th>
                                 <th class="wd-10p border-bottom-0">العمليات</th>
@@ -67,6 +68,7 @@
                                     <td>{{ ++$i }}</td>
                                     <td>{{ $user->username }}</td>
                                     <td>{{ $user->email }}</td>
+                                    <td>{{ $user->phone_number }}</td>
                                     <td>
                                         @if ($user->status == 'active')
                                             <span class="label text-success d-flex">
@@ -86,7 +88,7 @@
                                             @endforeach
                                         @endif
                                     </td>
-
+                                   
                                     <td>
                                         @can('تعديل مستخدم')
                                             <a href="{{ route('users.edit', $user->id) }}" class="btn btn-sm btn-info"
@@ -95,7 +97,7 @@
 
                                         @can('حذف مستخدم')
                                             <a class="modal-effect btn btn-sm btn-danger" data-effect="effect-scale"
-                                                data-user_id="{{ $user->id }}" data-username="{{ $user->name }}"
+                                                data-user_id="{{ $user->id }}" data-username="{{ $user->username }}"
                                                 data-toggle="modal" href="#modaldemo8" title="حذف"><i
                                                     class="las la-trash"></i></a>
                                         @endcan
@@ -118,7 +120,7 @@
                     <h6 class="modal-title">حذف المستخدم</h6><button aria-label="Close" class="close"
                         data-dismiss="modal" type="button"><span aria-hidden="true">&times;</span></button>
                 </div>
-                <form action="{{ route('users.destroy', 'test') }}" method="post">
+                <form action="{{ route('users.destroy', $user->id) }}" method="post">
                     {{ method_field('delete') }}
                     {{ csrf_field() }}
                     <div class="modal-body">

@@ -8,11 +8,12 @@ return new class extends Migration {
     /**
      * Run the migrations.
      */
-    public function up()
+    public function up(): void
     {
-        Schema::create('cities', function (Blueprint $table) {
+        Schema::create('client_locations', function (Blueprint $table) {
             $table->id();
-            $table->string('name');
+            $table->foreignId('client_id')->constrained('clients')->cascadeOnDelete();
+            $table->foreignId('location_id')->constrained('locations')->cascadeOnDelete();
             $table->timestamps();
         });
     }
@@ -20,8 +21,9 @@ return new class extends Migration {
     /**
      * Reverse the migrations.
      */
+
     public function down(): void
     {
-        Schema::dropIfExists('cities');
+        Schema::dropIfExists('client_locations');
     }
 };

@@ -53,7 +53,7 @@
                     <div class="row mg-b-20">
                         <div class="parsley-input col-md-6" id="fnWrapper">
                             <label>اسم المستخدم: <span class="tx-danger">*</span></label>
-                            {!! Form::text('name', null, array('class' => 'form-control','required')) !!}
+                            {!! Form::text('username', null, array('class' => 'form-control','required')) !!}
                         </div>
 
                         <div class="parsley-input col-md-6 mg-t-20 mg-md-t-0" id="lnWrapper">
@@ -79,13 +79,20 @@
                 <div class="row row-sm mg-b-20">
                     <div class="col-lg-6">
                         <label class="form-label">حالة المستخدم</label>
-                        <select name="Status" id="select-beast" class="form-control  nice-select  custom-select">
-                            <option value="{{ $user->Status}}">{{ $user->Status}}</option>
-                            <option value="مفعل">مفعل</option>
-                            <option value="غير مفعل">غير مفعل</option>
+                        <select name="status" id="select-beast" class="form-control  nice-select  custom-select">
+                            <option value="{{ $user->status}}">{{ $user->status}}</option>
+                            <option value="active">active</option>
+                                <option value="inactive">inactive</option>
                         </select>
                     </div>
+
+                    <div class="parsley-input col-md-6 mg-t-20 mg-md-t-0" id="lnWrapper">
+                            <label>البريد الالكتروني: <span class="tx-danger">*</span></label>
+                            {!! Form::text('phone_number', null, array('class' => 'form-control','required')) !!}
+                        </div>
+
                 </div>
+
 
                 <div class="row mg-b-20">
                     <div class="col-xs-12 col-sm-12 col-md-12">

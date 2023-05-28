@@ -33,7 +33,7 @@ class UserController extends Controller
     {
         //
         $roles = Role::pluck('name','name')->all();
-        return view('users.create',compact('roles'));
+        return view('users.Add_user',compact('roles'));
     }
 
     /**
@@ -47,9 +47,9 @@ class UserController extends Controller
             'username' => 'required',
             'email' => 'required|email|unique:users,email',
             'password' => 'required|same:confirm-password',
-            'user_type' => 'required',
             'status' => 'required',
             'phone_number' => 'required',
+            
             'roles' => 'required'
             ]);
             $input = $request->all();
@@ -92,7 +92,7 @@ class UserController extends Controller
             'username' => 'required',
             'email' => 'required|email|unique:users,email,'.$id,
             'password' => 'same:confirm-password',
-            'user_type' => 'required',
+          
             'status' => 'required',
             'phone_number' => 'required',
             'roles' => 'required'

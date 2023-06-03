@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\RoleController;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\OfferController;
 
 
 /*
@@ -44,6 +45,7 @@ Route::get('/home', 'HomeController@index')->name('home');
 Route::group(['middleware' => ['auth']], function() {
     Route::resource('roles',RoleController::class);
     Route::resource('users', UserController::class);
+    Route::resource('offers', OfferController::class);
     Route::resource('permissions', PermissionsController::class);
    
 });
